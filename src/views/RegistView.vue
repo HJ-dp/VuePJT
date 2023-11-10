@@ -20,7 +20,7 @@
   </template>
   
   <script setup>
-  import 
+  
   </script>
   
   <style scoped>
@@ -46,6 +46,7 @@
     align-items: center;
     margin: 0 auto;
     padding: 2em;
+    min-height: 80vh;
   }
   
   .form {

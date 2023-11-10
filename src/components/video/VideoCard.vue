@@ -17,8 +17,8 @@
 <script setup>
 import { useRouter } from 'vue-router'
 const router = useRouter()
-const detailView = (path) => {
-  router.push('/detail/'+ path)
+const detailView = (id) => {
+  router.push('/video/'+ id)
 }
 
 defineProps({

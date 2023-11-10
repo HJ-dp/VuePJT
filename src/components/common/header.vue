@@ -1,11 +1,12 @@
 <template>
     <header>
-        <div class="logo">SSAFIT</div>
+        <RouterLink to="/" class="logo">SSAFIT</RouterLink>
+        <!-- <div class="logo">SSAFIT</div> -->
         <nav class="global-nav">
             <RouterLink to="/" class="global-nav-item">Home</RouterLink>
             <RouterLink to="/about" class="global-nav-item">마이페이지</RouterLink>
-            <RouterLink to="/about" class="global-nav-item">로그인</RouterLink>
-            <RouterLink to="/about" class="global-nav-item">회원가입</RouterLink>
+            <RouterLink to="/login" class="global-nav-item">로그인</RouterLink>
+            <RouterLink to="/signup" class="global-nav-item">회원가입</RouterLink>
         </nav>
     </header>
 </template>

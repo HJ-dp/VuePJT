@@ -22,7 +22,6 @@ import List from '../components/video/VideoList.vue'
   margin: 0 auto;
   padding: 2em;
   min-height: 70vh;
-  gap:2em;
 }
 
 </style>
