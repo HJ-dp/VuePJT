@@ -11,6 +11,6 @@ import theHeader from './components/common/header.vue'
 
 </script>
 
-<style scoped>
+<style scoped> 
 
 </style>

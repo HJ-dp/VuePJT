@@ -12,7 +12,7 @@ export const useUserStore = defineStore('User', () => {
     axios.get({
       url: REST_USER_API + "login",
       method: 'POST',
-      params : user
+      data : user
     })
     .then((res)=>{
         User.value = res.data

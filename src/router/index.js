@@ -4,6 +4,7 @@ import Video from '../views/HomeView.vue'
 import VideoDetail from '../views/VideoDetail.vue'
 import SignUp from '../components/user/Regist.vue'
 import Login from '../components/user/Login.vue'
+import List from '../components/review/ReviewList.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,9 +19,9 @@ const router = createRouter({
       component: VideoDetail,
       children: [
         {
-          path: '/detail',
-          name: 'video',
-          component: Video,
+          path: '',
+          name: 'vue',
+          component: List,
         },{
           path: '/review/:id',
           name: 'video',

@@ -3,14 +3,14 @@ import { defineStore } from 'pinia'
 import router from '@/router'
 import axios from 'axios'
 
-const REST_REVIEW_API = `http://localhost:8080/api-review/review`
+const REST_REVIEW_API = `http://localhost:8080/api-review/review/`
 
 export const useReviewStore = defineStore('Review', () => {
-  const ReviewList = ref([]);
-  const getReviewList = function () {
-    axios.get(REST_VIDEO_API)
+  const ReviewList = ref();
+  const getReviewList = function (id) {
+    axios.get(REST_REVIEW_API+id)
     .then((res)=>{
-      VideoList.value = res.data
+      ReviewList.value = res.data
     })
   }
 
