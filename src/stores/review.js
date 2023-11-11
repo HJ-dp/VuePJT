@@ -79,4 +79,4 @@ export const useReviewStore = defineStore('Review', () => {
 
 
   return { Review, ReviewList, getReviewList, reviewCnt, getReview, registReview, deleteReview, modifyReview }
-})
+}, {persist:true})

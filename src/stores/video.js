@@ -32,4 +32,4 @@ export const useVideoStore = defineStore('Video', () => {
 
 
   return { Video,VideoList, getVideoList, getVideo, getPartVideo, seletedVideo }
-})
+}, {persist:true})

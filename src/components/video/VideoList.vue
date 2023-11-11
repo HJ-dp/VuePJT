@@ -32,7 +32,14 @@ onMounted(() => {
 <style scoped>
 
 .re {
-    margin: 2em auto;
+    margin: 2em 
+}
+.List {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    flex-wrap: wrap;
 }
 
 
