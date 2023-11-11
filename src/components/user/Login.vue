@@ -10,7 +10,7 @@
                 <legend>PW</legend>
                 <input type="password" v-model="user.password">
             </fieldset>
-            <input type="submit" @click="login" value="Login">
+            <button @click="login" >Login</button>
         </div>
     </div>
 </template>
@@ -24,8 +24,6 @@ const  user = ref({
         id : '',
         password : '',
     })
-
-
 function login(){
     store.loginUser(user.value)
 }

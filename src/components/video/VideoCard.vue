@@ -16,9 +16,13 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
+import { useVideoStore } from "@/stores/video";
+
+const store = useVideoStore();
 const router = useRouter()
-const detailView = (id) => {
-  router.push('/video/'+ id)
+const detailView = async (id) => {
+    await store.getVideo(id)
+    router.push('video/'+ id )
 }
 
 defineProps({
@@ -60,5 +64,23 @@ function getImageUrl(name) {
     border-radius: 10px;
     text-align: center;
     padding: 3px;
+}
+
+card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border: 1px solid #e7e7e7;
+    padding: 10px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    transition: 0.2s;
+    gap: 0.5em;
+}
+
+card:hover {
+    cursor: pointer;
+    transform: scale(1.03);
 }
 </style>

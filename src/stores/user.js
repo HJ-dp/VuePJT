@@ -6,19 +6,22 @@ import axios from 'axios'
 const REST_USER_API = `http://localhost:8080/api-user/`
 
 export const useUserStore = defineStore('User', () => {
-  const User = ref();
+  const User = ref('');
   const loginUser = function (user) {
-    console.log(user);
-    axios.get({
+    axios({
       url: REST_USER_API + "login",
       method: 'POST',
-      data : user
+      data : {
+        id:user.id,
+        password : user.password
+      }
     })
     .then((res)=>{
-        User.value = res.data
-        // User.value = user;
+        User.value = res.data;
+        router.push({ name: 'home'})
     }).catch((err) => {
       console.log(err)
+      alert('로그인 실패');
     })
   }
 
@@ -27,7 +30,7 @@ export const useUserStore = defineStore('User', () => {
     axios({
       url: REST_USER_API + "signup",
       method: 'POST',
-      params : user
+      data : user
     })
       .then(() => {
         alert("회원가입이 완료되었습니다.");

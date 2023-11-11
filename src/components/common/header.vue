@@ -4,14 +4,18 @@
         <!-- <div class="logo">SSAFIT</div> -->
         <nav class="global-nav">
             <RouterLink to="/" class="global-nav-item">Home</RouterLink>
-            <RouterLink to="/about" class="global-nav-item">마이페이지</RouterLink>
-            <RouterLink to="/login" class="global-nav-item">로그인</RouterLink>
-            <RouterLink to="/signup" class="global-nav-item">회원가입</RouterLink>
+            <RouterLink to="/" class="global-nav-item">마이페이지</RouterLink>
+            
+            <RouterLink v-if="store.User=='' " to="/login" class="global-nav-item">로그인</RouterLink>
+            <RouterLink v-if="store.User=='' " to="/signup" class="global-nav-item">회원가입</RouterLink>
+            <div v-else> {{ store.User.name }}님 환영합니다.</div>
         </nav>
     </header>
 </template>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <script setup>
+import { useUserStore } from '../../stores/user';
+const store = useUserStore();
 
 </script>
 

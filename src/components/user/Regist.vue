@@ -14,10 +14,10 @@
                 <legend>NAME</legend>
                 <input type="text" v-model="user.name">
             </fieldset>
-            <!-- <fieldset class="box">
+            <fieldset class="box">
                 <legend>EMAIL</legend>
-                <input type="text" v-model="email">
-            </fieldset> -->
+                <input type="text" v-model="user.email">
+            </fieldset>
             <input type="submit" @click="regist" value="Sign up">
         </div>
     </div>
@@ -32,7 +32,7 @@ const  user = ref({
         id : '',
         name : '',
         password : '',
-        // email
+        email:''
     })
 
 

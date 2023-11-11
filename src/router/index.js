@@ -5,7 +5,9 @@ import VideoDetail from '../views/VideoDetail.vue'
 import SignUp from '../components/user/Regist.vue'
 import Login from '../components/user/Login.vue'
 import List from '../components/review/ReviewList.vue'
-
+import Review from '../components/review/ReviewDetail.vue'
+import ReviewRegist from '../components/review/ReviewCreate.vue'
+import ReviewModi from '../components/review/ReviewModify.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -17,16 +19,29 @@ const router = createRouter({
       path: '/video/:id',
       name: 'videodetail',
       component: VideoDetail,
+      // props:true,
       children: [
         {
           path: '',
           name: 'vue',
           component: List,
         },{
-          path: '/review/:id',
-          name: 'video',
-          component: Video,
-        },
+          path: '/video/review/:id',
+          name: 'review',
+          component: Review,
+          props:true,
+
+        },{
+          path: '/regist/',
+          name: 'reviewregist',
+          component: ReviewRegist,
+          props:true,
+        },{
+          path: '/modify/',
+          name: 'reviewmodify',
+          component: ReviewModi,
+          props:true,
+        }
       ]
     }, {
       path: '/signup',

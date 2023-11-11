@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { defineStore } from 'pinia'
 import router from '@/router'
 import axios from 'axios'
@@ -7,7 +7,9 @@ const REST_VIDEO_API = `http://localhost:8080/api-video/video`
 
 export const useVideoStore = defineStore('Video', () => {
   const VideoList = ref([]);
+  const seletedVideo = ref([]);
   const Video = ref();
+
   const getVideoList = function () {
     axios.get(REST_VIDEO_API)
     .then((res)=>{
@@ -21,12 +23,13 @@ export const useVideoStore = defineStore('Video', () => {
     })
   }
 
-  const getPartVideo = function (part) {
-    axios.get(REST_VIDEO_API+"/list/"+part)
+  const getPartVideo = function (p) {
+    axios.get(REST_VIDEO_API+"/list/"+p)
     .then((res)=>{
-      VideoList.value = res
+      seletedVideo.value = res.data
     })
   }
 
-  return { Video,VideoList, getVideoList, getVideo, getPartVideo }
+
+  return { Video,VideoList, getVideoList, getVideo, getPartVideo, seletedVideo }
 })

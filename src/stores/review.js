@@ -6,17 +6,74 @@ import axios from 'axios'
 const REST_REVIEW_API = `http://localhost:8080/api-review/review/`
 
 export const useReviewStore = defineStore('Review', () => {
-  const ReviewList = ref();
+
+  const ReviewList = ref([]);
+  const Review = ref();
+
   const getReviewList = function (id) {
-    axios.get(REST_REVIEW_API+id)
+    axios.get(REST_REVIEW_API+'list/'+id)
     .then((res)=>{
-      ReviewList.value = res.data
+      ReviewList.value = res.data;
     })
   }
 
-//   const getReview = function () {
+  const getReview = function (id) {
+    axios.get(REST_REVIEW_API+id)
+    .then((res)=>{
+      Review.value = res.data;
+    })
+  }
 
-//   }
+  const registReview = function (review) {
+      axios({
+        url: REST_REVIEW_API,
+        method: 'POST',
+        params : review
+      })
+        .then(() => {
+          alert("작성되었습니다.");
+          router.push('/');
+        })
+        .catch((err) => {
+        console.log(err);
+      })
+    }
 
-  return { ReviewList, getReviewList }
+    const modifyReview = function (review) {
+      axios({
+        url: REST_REVIEW_API,
+        method: 'PUT',
+        params : review
+      })
+        .then(() => {
+          alert("수정되었습니다.");
+          router.push(-1);
+        })
+        .catch((err) => {
+        console.log(err);
+      })
+    }
+
+    const deleteReview = function (id) {
+      axios({
+        url: REST_REVIEW_API+id.id,
+        method: 'DELETE',
+        params : id
+      })
+        .then(() => {
+          alert("리뷰가 삭제되었습니다.");
+          router.push(-1);
+        })
+        .catch((err) => {
+        console.log(err);
+      })
+    }
+
+  const reviewCnt = computed(()=>{
+    return ReviewList.value.length;
+  })
+
+
+
+  return { Review, ReviewList, getReviewList, reviewCnt, getReview, registReview, deleteReview, modifyReview }
 })

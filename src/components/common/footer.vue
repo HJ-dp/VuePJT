@@ -2,8 +2,8 @@
     <div>
         <nav class="flex footer-nav">
             <RouterLink class="footer-nav-item" :to="{ name: 'signup' }">회원가입</RouterLink>
-            <a href="#" class="footer-nav-item">영상조회</a>
-            <a href="#" class="footer-nav-item">고객센터</a>
+            <RouterLink class="footer-nav-item" :to="{ name: 'home' }">영상조회</RouterLink>
+            <RouterLink class="footer-nav-item" :to="{ name: 'home' }">고객센터</RouterLink>
         </nav>
         <footer>
             <div class="flex">
