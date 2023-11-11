@@ -29,16 +29,17 @@
 import { ref, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useReviewStore } from '@/stores/review';
-
+import { useUserStore } from "@/stores/user";
 const router = useRouter();
 const route = useRoute();
 const props = defineProps(["type", "omg"]);
 const store = useReviewStore();
+const userStore = useUserStore();
 const type = ref(props.type || "");
 
 const id = ref(1);
 const title = ref("");
-const writerId = ref("");
+const writerId = ref(userStore.User?.name);
 const content = ref("");
 const videoId = ref("");
 const regDate = ref("");

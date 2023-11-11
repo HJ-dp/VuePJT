@@ -18,8 +18,8 @@
                 <legend>EMAIL</legend>
                 <input type="text" v-model="user.email">
             </fieldset>
-            <button @click="update">정보수정</button>
-            <button @click="dropOut">회원탈퇴</button>
+            <button @click="update()">정보수정</button>
+            <button @click="dropOut()">회원탈퇴</button>
         </div>
     </div>
 </template>

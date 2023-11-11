@@ -130,6 +130,9 @@ th.shortList{
         width: inherit;
     }
 
+    .mu {
+    left:0;
+}
 }
 
 </style>

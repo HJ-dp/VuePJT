@@ -32,7 +32,7 @@ export const useReviewStore = defineStore('Review', () => {
       })
         .then(() => {
           alert("작성되었습니다.");
-          router.push('/');
+          router.go(-1);
         })
         .catch((err) => {
         console.log(err);

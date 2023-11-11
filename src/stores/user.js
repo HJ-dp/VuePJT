@@ -43,25 +43,26 @@ export const useUserStore = defineStore('User', () => {
 
   const updateUser = function(user){
     axios({
-      url: REST_USER_API,
+      url: REST_USER_API + "user/update",
       method: 'PUT',
-      params : JSON.parse(JSON.stringify(user))
+      data : JSON.parse(JSON.stringify(user)),
     })
-      .then(() => {
-        ㅕ  
+      .then((res) => {
+        User.value = user;
         alert("정보가 수정되었습니다.");
         router.push('/');
+        console.log(res);
       })
       .catch((err) => {
       console.log(err);
     })
   }
 
-  const dropOutUser = function(id){
+  const dropoutUser = function(id){
     axios({
-      url: REST_USER_API+id,
+      url: REST_USER_API+"user/delete",
       method: 'DELETE',
-      params : id
+      data : JSON.parse(JSON.stringify(id))
     })
       .then(() => {
         User.value = '';
@@ -78,5 +79,5 @@ export const useUserStore = defineStore('User', () => {
     alert('안녕히 가세요!');
   }
 
-  return { User, registUser, loginUser,updateUser, dropOutUser,logout }
+  return { User, registUser, loginUser,updateUser, dropoutUser,logout }
 }, {persist:true})
