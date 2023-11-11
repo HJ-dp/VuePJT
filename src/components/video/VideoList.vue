@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="re">
         <div v-if="type == 'most' && store.VideoList" class="List">
             <cardDetail v-for="i of store.VideoList.data" :dynamic-props='i' :video-url="i.url" :key="i.id" />
         </div>
@@ -30,12 +30,10 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.List {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-    flex-wrap: wrap;
+
+.re {
+    margin: 2em auto;
 }
+
 
 </style>
