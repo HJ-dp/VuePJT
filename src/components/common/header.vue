@@ -4,11 +4,11 @@
         <!-- <div class="logo">SSAFIT</div> -->
         <nav class="global-nav">
             <RouterLink to="/" class="global-nav-item">Home</RouterLink>
-            <RouterLink v-if="store.User!='' " to="/" class="global-nav-item">마이페이지</RouterLink>
-            
             <RouterLink v-if="store.User=='' " to="/login" class="global-nav-item">로그인</RouterLink>
-            <RouterLink v-if="store.User=='' " to="/signup" class="global-nav-item">회원가입</RouterLink>
             <div v-else> {{ store.User.name }}님 환영합니다.</div>
+            <RouterLink v-if="store.User!='' " to="/mypage" class="global-nav-item">마이페이지</RouterLink>
+            <RouterLink v-if="store.User=='' " to="/signup" class="global-nav-item">회원가입</RouterLink>
+            <button v-else @click="store.logout()" class="global-nav-item">로그아웃</button>
         </nav>
     </header>
 </template>
@@ -43,6 +43,7 @@ header {
 .global-nav-item {
     font-weight: 500;
     transition: 0.2s;
+    cursor: pointer;
 }
 
 .global-nav-item:hover {

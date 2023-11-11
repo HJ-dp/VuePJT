@@ -1,9 +1,10 @@
 <template>
     <div>
         <nav class="flex footer-nav">
-            <RouterLink class="footer-nav-item" :to="{ name: 'signup' }">회원가입</RouterLink>
+            <RouterLink v-if="store.User==''" class="footer-nav-item" :to="{ name: 'signup' }">회원가입</RouterLink>
+            <RouterLink v-else class="footer-nav-item" :to="{ name: 'mypage' }">마이페이지</RouterLink>
             <RouterLink class="footer-nav-item" :to="{ name: 'home' }">영상조회</RouterLink>
-            <RouterLink class="footer-nav-item" :to="{ name: 'home' }">고객센터</RouterLink>
+            <a class="footer-nav-item" @click="nothing()">고객센터</a>
         </nav>
         <footer>
             <div class="flex">
@@ -18,7 +19,12 @@
 </template>
 
 <script setup>
+import { useUserStore } from '../../stores/user';
+const store = useUserStore();
 
+function nothing(){
+    alert('아 그런거 없다고 ㅋㅋ');
+}
 </script>
 
 <style scoped>

@@ -22,9 +22,10 @@ const route = useRoute();
 
 function getYoutubeUrl() {
     const idParam = store.Video?.videoKey;
-    return `<iframe 
-	width="860" height="515" 
-	src="https://www.youtube.com/embed/${idParam}" 
+    return `<iframe class="resp-iframe"
+        src="https://www.youtube.com/embed/${idParam}" 
+        width="500"
+    height="315"
 	title="YouTube video player" frameborder="0" 
 	allow="accelerometer; autoplay; clipboard-write; 
     encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
@@ -40,5 +41,8 @@ function getYoutubeUrl() {
     flex-direction: column;
     align-items: center;
     margin: 2em auto;
+    width: 100%;
 }
+
+
 </style>

@@ -8,6 +8,7 @@ import List from '../components/review/ReviewList.vue'
 import Review from '../components/review/ReviewDetail.vue'
 import ReviewRegist from '../components/review/ReviewCreate.vue'
 import ReviewModi from '../components/review/ReviewModify.vue'
+import Mypage from '../components/user/Mypage.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -51,6 +52,10 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: Login
+    }, {
+      path: '/mypage',
+      name: 'mypage',
+      component: Mypage
     }
 
   ]
