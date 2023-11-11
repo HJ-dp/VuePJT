@@ -4,7 +4,7 @@
         <!-- <div class="logo">SSAFIT</div> -->
         <nav class="global-nav">
             <RouterLink to="/" class="global-nav-item">Home</RouterLink>
-            <RouterLink to="/" class="global-nav-item">마이페이지</RouterLink>
+            <RouterLink v-if="store.User!='' " to="/" class="global-nav-item">마이페이지</RouterLink>
             
             <RouterLink v-if="store.User=='' " to="/login" class="global-nav-item">로그인</RouterLink>
             <RouterLink v-if="store.User=='' " to="/signup" class="global-nav-item">회원가입</RouterLink>

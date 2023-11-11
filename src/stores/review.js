@@ -43,11 +43,14 @@ export const useReviewStore = defineStore('Review', () => {
       axios({
         url: REST_REVIEW_API,
         method: 'PUT',
-        params : review
+        params : JSON.parse(JSON.stringify(review))
+        // data : {
+        //   review
+        // }
       })
         .then(() => {
           alert("수정되었습니다.");
-          router.push(-1);
+          router.push('/');
         })
         .catch((err) => {
         console.log(err);
@@ -62,7 +65,7 @@ export const useReviewStore = defineStore('Review', () => {
       })
         .then(() => {
           alert("리뷰가 삭제되었습니다.");
-          router.push(-1);
+          router.push('/');
         })
         .catch((err) => {
         console.log(err);

@@ -32,12 +32,12 @@ const router = createRouter({
           props:true,
 
         },{
-          path: '/regist/',
+          path: '/regist/:id',
           name: 'reviewregist',
           component: ReviewRegist,
           props:true,
         },{
-          path: '/modify/',
+          path: '/modify/:id',
           name: 'reviewmodify',
           component: ReviewModi,
           props:true,

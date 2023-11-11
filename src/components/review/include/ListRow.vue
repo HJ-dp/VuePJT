@@ -2,7 +2,7 @@
     <tr @click="move(dynamicProps.id)">
         <td>{{ dynamicProps.title }}</td>
         <td>{{ dynamicProps.writerId }}</td>
-        <td>{{ dynamicProps.regDate }}</td>
+        <td class="tooLong">{{ dynamicProps.regDate }}</td>
         <td>{{ dynamicProps.viewCnt }}</td>
     </tr>
 </template>
@@ -35,4 +35,13 @@ const move = (id)=>{
         padding: 1em;
     }
 
+@media screen AND (max-width: 768px) {
+    .tooLong{
+        display: none;
+    }
+    tr>* {
+        width: 100%;
+    }
+
+}
 </style>

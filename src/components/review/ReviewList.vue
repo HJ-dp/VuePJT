@@ -4,7 +4,8 @@
         <table>
             <thead>
                 <tr>
-                    <th v-for="i in titleList" :key="i.id">{{ i }}</th>
+                    <th class="tooLong" v-for="i in titleList" :key="i.id">{{ i }}</th>
+                    <th class="shortList" v-for="j in shortList" :key="j.id">{{ j }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,17 +27,17 @@ import { onMounted } from "vue";
 import ReviewRow from './include/ListRow.vue';
 
 const titleList = ['제목', ' 작성자', '등록일', '조회수'];
+const shortList = ['제목', ' 작성자', '조회수'];
 const store = useReviewStore();
 const route = useRoute();
 const router = useRouter();
 
 onMounted(async () => {
-    console.log(route.params.id);
     await store.getReviewList(route.params.id);
 })
 
 function regist(){
-    router.push('/regist')
+    router.push('/regist/'+route.params.id)
 }
 
 
@@ -54,6 +55,12 @@ th, tbody>* {
     text-align: center;
     width: 9%;
     white-space: nowrap;
+}
+th.shortList{
+    padding:15px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.1em;
 }
 
 .mu {
@@ -92,5 +99,37 @@ th, tbody>* {
     color:white;
 }
 
+
+.shortList {
+        display: none;
+}
+
+@media screen AND (max-width: 768px) {
+    .tooLong{
+        display: none;
+    }
+
+    .shortList {
+        display: block;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    tr {
+        display: flex;
+    }
+    tr>* {
+        width: 100%;
+    }
+
+
+
+    tbody>*{
+        width: inherit;
+    }
+
+}
 
 </style>
